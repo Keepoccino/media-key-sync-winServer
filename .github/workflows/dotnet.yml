@@ -20,16 +20,13 @@ jobs:
     - name: Navigate to Workspace
       run: cd $GITHUB_WORKSPACE
 
-    - name: Create Build Directory
-      run: mkdir _build
-
     - name: Build Solution
       run: |
         msbuild.exe MediaKeySyncServer.sln /restore /nologo /nr:false /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=True /p:platform="Any CPU" /p:configuration="Release" /p:PublishUrl="../_build"
     
     - name: Create zip
       run: |
-        tar.exe -a -c -f server.zip ./MediaKeySyncServer/bin/
+        tar.exe -cvzf server.zip ./MediaKeySyncServer/bin/
         
     - name: Upload artifact
       uses: actions/upload-artifact@v1.0.0
