@@ -26,7 +26,7 @@ jobs:
     
     - name: Create zip
       run: |
-        tar.exe -cvzf server.zip ./MediaKeySyncServer/bin/
+        Compress-Archive -Path ./MediaKeySyncServer/bin/* -DestinationPath server.zip
         
     - name: Upload artifact
       uses: actions/upload-artifact@v1.0.0
