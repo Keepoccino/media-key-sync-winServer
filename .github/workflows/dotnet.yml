@@ -14,10 +14,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     
-    - uses: einaregilsson/build-number@v1
-      with:
-        token: ${{secrets.github_token}}
-    
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
       
@@ -44,7 +40,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{ github.ref }}_${{ env.BUILD_NUMBER }}
+        tag_name: ${{ github.ref }}_${{ ${{ github.run_number }} }}
         release_name: Release ${{ github.ref }}
         draft: false
         prerelease: false
