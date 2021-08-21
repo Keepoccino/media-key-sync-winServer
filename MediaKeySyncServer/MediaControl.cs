@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Media.Control;
 
-namespace ConsoleApp1
+namespace Server
 {
     class MediaControl
     {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Windows.Media.Control;
 using Windows.Storage.Streams;
 
-namespace ConsoleApp1
+namespace Server
 {
     public class MediaProperties
     {

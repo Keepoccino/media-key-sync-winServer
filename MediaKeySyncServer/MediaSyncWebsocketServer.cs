@@ -7,7 +7,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 
-namespace ConsoleApp1
+namespace Server
 {
     class MediaSyncWebsocketServer
     {
