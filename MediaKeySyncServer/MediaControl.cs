@@ -59,7 +59,7 @@ namespace Server
 
         public async Task<MediaProperties> Info()
         {
-            return new MediaProperties(await GetMediaProperties(session), session.SourceAppUserModelId);
+            return new MediaProperties(await GetMediaProperties(session), removeFileExtension(session.SourceAppUserModelId));
         }
 
         private static async Task<GlobalSystemMediaTransportControlsSessionManager> GetSystemMediaTransportControlsSessionManager() =>
@@ -67,6 +67,14 @@ namespace Server
 
         private static async Task<GlobalSystemMediaTransportControlsSessionMediaProperties> GetMediaProperties(GlobalSystemMediaTransportControlsSession session) =>
             await session.TryGetMediaPropertiesAsync();
+
+        private string removeFileExtension(string filename)
+        {
+            var index = filename.LastIndexOf(".");
+            if (index > 0)
+                filename = filename.Substring(0, index);
+            return filename;
+        }
     }
 
     public class MediaChangeEventArgs : EventArgs
