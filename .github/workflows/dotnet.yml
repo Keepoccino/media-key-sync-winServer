@@ -29,7 +29,7 @@ jobs:
     
     - name: Create zip
       run: |
-        zip -r server.zip ./MediaKeySyncServer/bin/*
+        tar.exe -a -c -f server.zip ./MediaKeySyncServer/bin/
         
     - name: Upload artifact
       uses: actions/upload-artifact@v1.0.0
