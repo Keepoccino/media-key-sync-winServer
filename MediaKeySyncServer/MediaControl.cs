@@ -16,6 +16,7 @@ namespace Server
             var gsmtcsm = await GetSystemMediaTransportControlsSessionManager();
             session = gsmtcsm.GetCurrentSession();
             session.MediaPropertiesChanged += Session_MediaPropertiesChanged;
+            Console.WriteLine("Controlling " + session.SourceAppUserModelId);
         }
 
         private async void Session_MediaPropertiesChanged(GlobalSystemMediaTransportControlsSession sender, MediaPropertiesChangedEventArgs args)
@@ -58,7 +59,7 @@ namespace Server
 
         public async Task<MediaProperties> Info()
         {
-            return new MediaProperties(await GetMediaProperties(session));
+            return new MediaProperties(await GetMediaProperties(session), session.SourceAppUserModelId);
         }
 
         private static async Task<GlobalSystemMediaTransportControlsSessionManager> GetSystemMediaTransportControlsSessionManager() =>

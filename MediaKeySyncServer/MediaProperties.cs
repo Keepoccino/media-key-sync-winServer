@@ -12,12 +12,14 @@ namespace Server
     {
         public string title { get; private set; }
         public string artist { get; private set; }
+        public string app { get; private set; }
         public string thumbnailBase64Png { get; private set; }
 
-        public MediaProperties(GlobalSystemMediaTransportControlsSessionMediaProperties properties)
+        public MediaProperties(GlobalSystemMediaTransportControlsSessionMediaProperties properties, string appName)
         {
             title = properties.Title;
             artist = properties.Artist;
+            app = appName;
             Task.Run(async () => thumbnailBase64Png = await convertThumbnailToBase64(properties.Thumbnail)).Wait();
         }
 
