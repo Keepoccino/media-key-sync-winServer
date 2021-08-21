@@ -31,5 +31,5 @@ jobs:
       uses: actions/upload-artifact@v1.0.0
       with:
         name: MediaKeySyncServer
-        path: "./bin"        
+        path: "./MediaKeySyncServer/bin"        
      
