@@ -1,5 +1,7 @@
 # media-key-sync-winServer
 
+[![build & release](https://github.com/Keepoccino/media-key-sync-winServer/actions/workflows/dotnet.yml/badge.svg)](https://github.com/Keepoccino/media-key-sync-winServer/actions/workflows/dotnet.yml)
+
 This is a .NET Core based server which allows to control the playback of the current media session on windows via Websockets. 
 Its most useful in combination with a client such as the [media-key-sync-browserClient](https://github.com/Keepoccino/media-key-sync-browserClient).
 That allows you to control the media session from any other device. As the name also suggests, you can use the media keys on the client to control the media session on the server.
